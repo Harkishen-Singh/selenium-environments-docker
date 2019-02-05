@@ -2,8 +2,8 @@ image: node:latest
 
 stages:
     - installing_browsers
-    - npms
-    - tests
+    - start
+    - deploy
     
 installing_browsers:
     stage: installing_browsers
@@ -14,8 +14,8 @@ installing_browsers:
         - apt-get update
         - apt-get install google-chrome-stable -y
         
-npms:
-    stage: npms
+start:
+    stage: start
     script:
         - npm install -g mocha selenium-webdriver chromedriver geckodriver
         - npm install
@@ -27,8 +27,8 @@ npms:
         paths:
             - node_modules/
             
-tests:
-    stage: tests
+deploy:
+    stage: deploy
     script:
         - mocha tests/
 
