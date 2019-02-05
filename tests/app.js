@@ -1,11 +1,13 @@
 const webdriver = require('selenium-webdriver'),
     chrome = require('selenium-webdriver/chrome'),
     By = webdriver.By,
+    domains = require('./domains'),
     assert = require('assert'),
     firefox = require('selenium-webdriver/firefox');
     { describe, it, after, before } require('selenium-webdriver/testing')
 require('chromedriver');
 require('geckodriver');
+// var domainsName = domains;
 
 var options = new chrome.Options();
 options.addArguments("headless");
@@ -13,7 +15,7 @@ options.addArguments("headless");
 let driver;
 
 describe('Test Execution in Chrome Environments', function() {
-    this.timeout(21000);
+    this.timeout(70000);
 
     describe('Creating browser instances', () => {
         it('launching chrome instance', (done) => {
@@ -49,7 +51,6 @@ describe('Test Execution in Chrome Environments', function() {
                 driver.findElement(By.className('LC20lb')).then(elements => {
                     console.warn('web structure below');
                     console.warn(elements);
-                    driver.quit();
                     done();
                 });
             });
