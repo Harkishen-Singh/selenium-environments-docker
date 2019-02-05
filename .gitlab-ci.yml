@@ -19,9 +19,6 @@ npms:
     script:
         - npm install -g mocha selenium-webdriver chromedriver geckodriver
         - npm install
-    artifacts:
-   paths:
-   - node_modules 
   cache:
    paths:
    - node_modules
