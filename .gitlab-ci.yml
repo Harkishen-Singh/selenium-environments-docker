@@ -19,10 +19,12 @@ npms:
     script:
         - npm install -g mocha selenium-webdriver chromedriver geckodriver
         - npm install
-    cache:
-    key: ${CI_BUILD_REF_NAME}
-    paths:
-      - node_modules/
+    artifacts:
+   paths:
+   - node_modules 
+  cache:
+   paths:
+   - node_modules
             
 tests:
     stage: tests
