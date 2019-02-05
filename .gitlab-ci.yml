@@ -9,9 +9,9 @@ installing_browsers:
     stage: installing_browsers
     script:
         - cat /etc/os-release
-        - echo "installing browsers on docker instance"
-        - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        - dpkg -i google-chrome-stable_current_amd64.deb
+        # - echo "installing browsers on docker instance"
+        # - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        # - dpkg -i google-chrome-stable_current_amd64.deb
         # - apt-get update
         # - apt-get install google-chrome-stable -y
         
