@@ -17,7 +17,6 @@ installing_browsers:
 npms:
     stage: npms
     script:
-        - npm install -g mocha selenium-webdriver chromedriver geckodriver
         - npm install
   cache:
    paths:
