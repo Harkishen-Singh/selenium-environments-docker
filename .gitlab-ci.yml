@@ -1,14 +1,14 @@
 image: node:latest
 
 stages:
-    - installing_browsers
+    # - installing_browsers
     - npms
     - tests
     
-installing_browsers:
-    stage: installing_browsers
-    script:
-        - cat /etc/os-release
+# installing_browsers:
+#     stage: installing_browsers
+#     script:
+#         - cat /etc/os-release
         # - echo "installing browsers on docker instance"
         # - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         # - dpkg -i google-chrome-stable_current_amd64.deb
