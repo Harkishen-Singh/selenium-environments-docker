@@ -19,13 +19,8 @@ npms:
     script:
         - npm install -g mocha selenium-browser chromedriver geckodriver
         - npm install
-  cache:
-   paths:
-   - node_modules
             
 tests:
     stage: tests
     script:
         - mocha tests/
-
-    
