@@ -3,7 +3,7 @@ image: node:latest
 stages:
     # - installing_browsers
     - npms
-    - tests
+    # - tests
     
 # installing_browsers:
 #     stage: installing_browsers
@@ -20,11 +20,12 @@ npms:
     script:
         - npm install -g mocha
         - npm install
+        - mocha tests/
     cache:
         paths:
             - node_modules/
             
-tests:
-    stage: tests
-    script:
-        - mocha tests/
+# tests:
+#     stage: tests
+#     script:
+#         - mocha tests/
