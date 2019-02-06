@@ -1,4 +1,4 @@
-image: docker pull harkishen/selenium-chromedriver-geckodriver-test-image
+image: harkishen-singh/sel-tool-test
 
 stages:
     # - installing_browsers
