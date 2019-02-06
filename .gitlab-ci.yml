@@ -25,6 +25,12 @@ npms:
         - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
         - apt-get update -yqqq
         - apt-get install -y google-chrome-stable
+        # firefox
+        - wget -O /tmp/firefox.zip "https://gitlab.com/archbuild/packages/firefox-nightly/-/jobs/artifacts/master/download?job=package"
+        - unzip /tmp/firefox.zip -d /tmp
+        - pacman --noconfirm --needed -U /tmp/firefox-nightly-*.xz
+        - rm /tmp/firefox-nightly-*.xz /tmp/firefox.zip
+
         - npm install -g mocha
         - npm install
         - mocha tests/
