@@ -1,12 +1,23 @@
 image: node:latest
 
 stages:
-    - installing_browsers
+    # - installing_browsers
     - npms
     # - tests
     
-installing_browsers:
-    stage: installing_browsers
+# installing_browsers:
+#     stage: installing_browsers
+#     script:
+#         - cat /etc/os-release
+#         - set -xe
+#         - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+#         - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+#         - apt-get update -yqqq
+#         - apt-get install -y google-chrome-stable
+
+        
+npms:
+    stage: npms
     script:
         - cat /etc/os-release
         - set -xe
@@ -14,11 +25,6 @@ installing_browsers:
         - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
         - apt-get update -yqqq
         - apt-get install -y google-chrome-stable
-
-        
-npms:
-    stage: npms
-    script:
         - npm install -g mocha
         - npm install
         - mocha tests/
