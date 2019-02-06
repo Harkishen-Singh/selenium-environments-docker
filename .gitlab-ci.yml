@@ -1,4 +1,4 @@
-image: harkishen-singh/sel-tool-test
+image: registry.gitlab.com/harkishen-singh/sel-tool-test
 
 stages:
     # - installing_browsers
