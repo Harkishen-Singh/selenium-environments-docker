@@ -1,19 +1,24 @@
 image: node:latest
 
 stages:
-    # - installing_browsers
+    - installing_browsers
     - npms
     # - tests
     
-# installing_browsers:
-#     stage: installing_browsers
-#     script:
-#         - cat /etc/os-release
-        # - echo "installing browsers on docker instance"
-        # - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        # - dpkg -i google-chrome-stable_current_amd64.deb
-        # - apt-get update
-        # - apt-get install google-chrome-stable -y
+installing_browsers:
+    stage: installing_browsers
+    script:
+        - cat /etc/os-release
+        - set -xe
+        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+        - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+        
+        - # Update packages
+        - apt-get update -yqqq
+        
+        - # Install Chrome browser
+        - apt-get install -y google-chrome-stable
+
         
 npms:
     stage: npms
