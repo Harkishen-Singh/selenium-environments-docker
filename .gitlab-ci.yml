@@ -1,4 +1,4 @@
-image: harkishen/selenium-chromedriver-geckodriver-test-image
+image: "harkishen/selenium-chromedriver-geckodriver-test-image"
 
 stages:
     # - installing_browsers
