@@ -11,9 +11,11 @@ require('geckodriver');
 
 var options = new chrome.Options();
 options.addArguments("headless");
+options.addArguments("--no-sandbox");
 
 var optionsFireFox = new firefox.Options();
-optionsFireFox.addArguments("--headless")
+optionsFireFox.addArguments("--headless");
+optionsFireFox.addArguments("--no-sandbox");
 
 let driver;
 
