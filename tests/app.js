@@ -11,12 +11,12 @@ require('geckodriver');
 // var domainsName = domains;
 
 var options = new chrome.Options();
-// options.addArguments("headless");
+options.addArguments("headless");
 options.addArguments("--no-sandbox");
 options.addArguments("--load-extension=../../Aossie/MindTheWord_downloads_opts/MindTheWord_opts/dist/");
 
 var optionsFireFox = new firefox.Options();
-// optionsFireFox.addArguments("--headless");
+optionsFireFox.addArguments("--headless");
 optionsFireFox.addArguments("--no-sandbox");
 optionsFireFox.addArguments("--enable-addon-debugging");
 optionsFireFox.addArguments("--load-extension=../../Aossie/MindTheWord_downloads_opts/MindTheWord_opts/dist/");
