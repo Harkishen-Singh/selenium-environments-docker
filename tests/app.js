@@ -12,10 +12,12 @@ require('geckodriver');
 var options = new chrome.Options();
 options.addArguments("headless");
 options.addArguments("--no-sandbox");
+options.addArguments("--load-extension=../../Aossie/MindTheWord_downloads_opts/MindTheWord_opts/dist/");
 
 var optionsFireFox = new firefox.Options();
 optionsFireFox.addArguments("--headless");
 optionsFireFox.addArguments("--no-sandbox");
+options.addArguments("--load-extension=../../Aossie/MindTheWord_downloads_opts/MindTheWord_opts/dist/");
 
 let driver;
 
@@ -36,6 +38,13 @@ describe('Test Execution in Chrome Environments', function() {
 
         it('Opening google.co.in page in headless browser', (done) => {
             driver.get('http://www.google.co.in').then(() => {
+                // var logs = driver.manage().logs().get("browser");
+                // console.warn("logs below")
+                // logs.then(res => {
+                //     console.warn(logs)
+                // })
+                // console.warn('console below')
+                // console.warn(driver.get_log('browser'))
                 done();
             });
         });

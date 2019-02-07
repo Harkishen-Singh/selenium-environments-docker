@@ -14,5 +14,6 @@ RUN apt-get -qq install google-chrome-stable
 RUN apt-get -qq install software-properties-common
 RUN add-apt-repository ppa:mozillateam/firefox-next
 RUN apt-get update
-RUN apt-get -qq install firefox
+RUN apt-get -qq install firefox nodejs npm
+RUN node --version && npm --version
 
