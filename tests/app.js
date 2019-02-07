@@ -1,6 +1,7 @@
 const webdriver = require('selenium-webdriver'),
     chrome = require('selenium-webdriver/chrome'),
     By = webdriver.By,
+    logging = webdriver.logging,
     domains = require('./domains'),
     assert = require('assert'),
     firefox = require('selenium-webdriver/firefox');
@@ -10,14 +11,15 @@ require('geckodriver');
 // var domainsName = domains;
 
 var options = new chrome.Options();
-options.addArguments("headless");
+// options.addArguments("headless");
 options.addArguments("--no-sandbox");
 options.addArguments("--load-extension=../../Aossie/MindTheWord_downloads_opts/MindTheWord_opts/dist/");
 
 var optionsFireFox = new firefox.Options();
-optionsFireFox.addArguments("--headless");
+// optionsFireFox.addArguments("--headless");
 optionsFireFox.addArguments("--no-sandbox");
-options.addArguments("--load-extension=../../Aossie/MindTheWord_downloads_opts/MindTheWord_opts/dist/");
+optionsFireFox.addArguments("--enable-addon-debugging");
+optionsFireFox.addArguments("--load-extension=../../Aossie/MindTheWord_downloads_opts/MindTheWord_opts/dist/");
 
 let driver;
 
@@ -30,6 +32,7 @@ describe('Test Execution in Chrome Environments', function() {
             driver.then(() => {
                 done();
             });
+            // driver.manage().logs()
         });
     });
 
@@ -43,8 +46,12 @@ describe('Test Execution in Chrome Environments', function() {
                 // logs.then(res => {
                 //     console.warn(logs)
                 // })
-                // console.warn('console below')
-                // console.warn(driver.get_log('browser'))
+                console.warn('console below')
+                // console.warn(
+                    driver.manage().logs().get(logging.Type.BROWSER).then(er => {
+                        console.log(er)
+                    })
+                    // )
                 done();
             });
         });
@@ -102,7 +109,7 @@ describe('Test Execution in Firefox Environments', function() {
             driver.findElement(By.xpath('//*[@id="tsf"]/div[2]/div/div[3]/center/input[1]')).click().then(rr => {
                 driver.sleep(5000);
                 driver.findElement(By.className('LC20lb')).then(elements => {
-                    driver.quit();
+                    // driver.quit();
                     done();
                 });
             });
